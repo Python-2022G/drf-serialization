@@ -10,6 +10,8 @@ pip install -r requirements.txt
 
 ## Usage
 
+### Object to JSON
+
 Object Task
 
 ```python
@@ -47,6 +49,8 @@ Output
     "completed": false
 }
 ```
+
+### Django Model to JSON
 
 Model Task
 
