@@ -88,3 +88,24 @@ Output
     "completed": false
 }
 ```
+
+### Validation and Error Handling
+
+Serializer
+
+```python
+task = Task('Buy milk', 'Buy 2L of milk from the store')
+serializer = TaskSerializer(task)
+serializer.is_valid()
+serializer.errors
+```
+
+Output
+
+```json
+{
+    "completed": [
+        "This field is required."
+    ]
+}
+```
