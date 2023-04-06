@@ -17,3 +17,8 @@ class TaskSerializer(serializers.Serializer):
         instance.completed = validated_data.get('completed', instance.completed)
         instance.save()
         return instance
+    
+    def to_representation(self, instance):
+        return {
+            'title': instance.title
+        }
