@@ -5,7 +5,6 @@ class Task:
     def __init__(self, title, description, completed=None):
         self.title = title
         self.description = description
-        self.completed = completed
 
 
 class TaskSerializer(serializers.Serializer):
@@ -16,7 +15,8 @@ class TaskSerializer(serializers.Serializer):
 
 task = Task('Buy milk', 'Buy 2L of milk from the store')
 
-serializer = TaskSerializer(task)
-print(
-    serializer.data
-)
+task = {
+    'title': 'nimadir',
+    'description': 'nimsdas'
+}
+serializer = TaskSerializer(data=task)
