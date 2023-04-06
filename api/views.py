@@ -30,3 +30,16 @@ def create_task(request: Request) -> Response:
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['PUT'])
+def update_task(request: Request, pk: int) -> Response:
+    '''update a task'''
+    # task
+    task = Task.objects.get(id=pk)
+    # task
+    serializer = TaskSerializer(instance=task, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
