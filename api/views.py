@@ -16,9 +16,6 @@ def get_tasks(request: Request) -> Response:
     # all tasks
     tasks = Task.objects.all()
     # task_list
-    tasks_list = []
-    for task in tasks:
-        serializer = TaskSerializer(task)
-        tasks_list.append(serializer.data)
+    serializer = TaskSerializer(tasks, many=True)
     
-    return Response(tasks_list)
+    return Response(serializer.data)
