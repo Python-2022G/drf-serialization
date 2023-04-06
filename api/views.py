@@ -18,4 +18,4 @@ def get_tasks(request: Request) -> Response:
     # task_list
     serializer = TaskSerializer(tasks, many=True)
     
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
